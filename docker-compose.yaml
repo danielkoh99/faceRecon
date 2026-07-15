@@ -1,0 +1,35 @@
+services:
+  deepface:
+    image: serengil/deepface:latest
+    container_name: deepface
+    ports:
+      - "5005:5000"
+    volumes:
+      - /Users/koharidaniel/Downloads:/data
+    restart: unless-stopped
+  db:
+    image: postgres:16-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=faceRecon
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_faceRecon:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  # backend:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   environment:
+  #     - DEEPFACE_API=http://deepface/
+  #   ports:
+  #     - "8080:8080"
+volumes:
+  postgres_faceRecon:
