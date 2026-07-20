@@ -1,4 +1,4 @@
-package com.faceRecon.imagerecognition;
+package com.faceRecon.imageRecognition.represent;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,8 +12,9 @@ import tools.jackson.databind.annotation.JsonNaming;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class AnalyzeRequestDto {
+public class RepresentRequestDto {
     private String modelName;
     private String detectorBackend;
     private String img;
+
 }

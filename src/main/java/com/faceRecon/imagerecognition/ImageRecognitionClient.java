@@ -1,8 +1,13 @@
-package com.faceRecon.imagerecognition;
+package com.faceRecon.imageRecognition;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
+
+// import com.faceRecon.imageRecognition.represent.RepresentDtos;
+import com.faceRecon.imageRecognition.represent.RepresentRequestDto;
+import com.faceRecon.imageRecognition.represent.RepresentResponseDto;
+import com.faceRecon.imageRecognition.verify.VerifyDtos;
 
 @Service
 public class ImageRecognitionClient {
@@ -17,20 +22,20 @@ public class ImageRecognitionClient {
                 .build();
     }
 
-    public RepresentDtos.Response represent(RepresentDtos.Request request) {
+    // public RepresentDtos.Response represent(RepresentDtos.Request request) {
+    // return restClient.post()
+    // .uri("/analyze")
+    // .body(request)
+    // .retrieve()
+    // .body(RepresentDtos.Response.class);
+    // }
+
+    public RepresentResponseDto analyze(RepresentRequestDto request) {
         return restClient.post()
                 .uri("/represent")
                 .body(request)
                 .retrieve()
-                .body(RepresentDtos.Response.class);
-    }
-
-    public AnalyzeResponseDto analyze(AnalyzeRequestDto request) {
-        return restClient.post()
-                .uri("/analyze")
-                .body(request)
-                .retrieve()
-                .body(AnalyzeResponseDto.class);
+                .body(RepresentResponseDto.class);
     }
 
     public VerifyDtos.Response verify(VerifyDtos.Request request) {

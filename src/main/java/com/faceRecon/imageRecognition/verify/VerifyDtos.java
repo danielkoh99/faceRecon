@@ -1,9 +1,9 @@
-package com.faceRecon.imagerecognition;
+package com.faceRecon.imageRecognition.verify;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
-public class RepresentDtos {
+public class VerifyDtos {
 
         public record Request(
                         @JsonProperty("model_name") String modelName,

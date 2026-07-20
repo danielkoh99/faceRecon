@@ -16,6 +16,9 @@ public class Image {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
+  @Column(nullable = true, length = 500)
+  private String originalName;
+
   @Column(nullable = false, length = 500)
   private String url;
 

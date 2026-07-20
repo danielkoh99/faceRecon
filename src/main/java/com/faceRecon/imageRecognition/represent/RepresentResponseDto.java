@@ -1,4 +1,4 @@
-package com.faceRecon.imagerecognition;
+package com.faceRecon.imageRecognition.represent;
 
 import java.util.List;
 
@@ -9,17 +9,17 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AnalyzeResponseDto {
+public class RepresentResponseDto {
 
-    private List<AnalyzeResultDto> results;
+    private List<RepresentResultDto> results;
 
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class AnalyzeResultDto {
+    public static class RepresentResultDto {
         private List<Double> embedding;
-        private Double faceConfidence;
-        private FacialAreaDto facialArea;
+        private Double face_confidence;
+        private FacialAreaDto facial_area;
     }
 
     @Data
@@ -27,8 +27,8 @@ public class AnalyzeResponseDto {
     @AllArgsConstructor
     public static class FacialAreaDto {
         private Integer h;
-        private List<Integer> leftEye;
-        private List<Integer> rightEye;
+        private List<Integer> left_eye;
+        private List<Integer> right_eye;
         private Integer w;
         private Integer x;
         private Integer y;

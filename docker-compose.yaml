@@ -5,7 +5,7 @@ services:
     ports:
       - "5005:5000"
     volumes:
-      - /Users/koharidaniel/Downloads:/data
+      - ./uploads:/data
     restart: unless-stopped
   db:
     image: postgres:16-alpine
